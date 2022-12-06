@@ -1,0 +1,115 @@
+##Foundations and Set-up
+
+#check your computer for an updated version of conda
+conda --version
+#if installed, a version will appear in the output and if not you will need to install it from the developer
+
+$ conda update conda
+#this will bring your conda up to date
+
+conda create [--name of env] anvio-7.1 python=3.6 [or version installed on your machine]
+#you are now creating a new environment to run anvi'o to ensure you do not override anything on your machine
+
+conda activate <name of env>
+#this will activate the environment you created
+
+#the following code are all dependencies needed to use anvi'o properly
+
+conda install -y -c bioconda "sqlite>=3.31.1"
+conda install -y -c bioconda prodigal
+conda install -y -c bioconda mcl
+conda install -y -c bioconda muscle=3.8.1551
+conda install -y -c bioconda hmmer
+conda install -y -c bioconda diamond
+conda install -y -c bioconda blast
+conda install -y -c bioconda megahit
+conda install -y -c bioconda spades
+conda install -y -c bioconda bowtie2 tbb=2019.8
+conda install -y -c bioconda bwa
+conda install -y -c bioconda samtools=1.9
+conda install -y -c bioconda centrifuge
+conda install -y -c bioconda trimal
+conda install -y -c bioconda iqtree
+conda install -y -c bioconda trnascan-se
+conda install -y -c bioconda r-base
+conda install -y -c bioconda r-stringi
+conda install -y -c bioconda r-tidyverse
+conda install -y -c bioconda r-magrittr
+conda install -y -c bioconda r-optparse
+conda install -y -c bioconda bioconductor-qvalue
+conda install -y -c bioconda fasttree
+conda install -y -c bioconda vmatch
+
+curl -L https://github.com/merenlab/anvio/releases/download/v7.1/anvio-7.1.tar.gz \
+        --output anvio-7.1.tar.gz
+#this will download the package
+
+pip install anvio-7.1.tar.gz
+#this will install anvi'o
+
+##Pangenomic Analysis
+
+#The purpose of this project is to run a pangenomic analysis on two soil bacterial isolates and determine if there is any crossover
+in functional genes found from the two possible treatments mowed(M) and mowed fertilized (MF)
+
+#We will be starting with Pseudomonas koreensis
+#To begin you will create an internal genomes storage. This will tell anvi'o where to pull the data from
+anvi-gen-genomes-storage -i PkorensisIG.txt \
+                         -o PKOR-GENOMES.db
+
+#now you will run the pangenomic analysis using the project name (PKOR_PAN)
+#the flag -g denotes the name of the genome storage
+#the flag -n denotes the name of the project
+anvi-pan-genome -g PKOR-GENOMES.db -n PKOR_PAN
+
+#this will import an additional data table that was created to categorize each isolate (2 total) by their specific treatment mowed (M) or moved fertilized (MF)
+anvi-import-misc-data PKOR-additional-data.txt \
+                      -p PKOR_PAN-PAN.db \
+                      --target-data-table layers
+
+#now that you have imported all of your data, you will display your pangenome
+anvi-display-pan -g PKOR-GENOMES.db \
+                 -p PKOR_PAN-PAN.db
+
+#This is the fun part! You will compute functional enrichment of your pangenome against a data source of your choosing
+#For this workflow we will be using the COG20_FUNCTION source which directly looks for COGS (clusters of orthologous genes) related to metabolism and nutrient uptake
+anvi-compute-functional-enrichment-in-pan -p PKOR_PAN-PAN.db \
+                                          -g PKOR-GENOMES.db \
+                                          --category treatment \
+                                          --annotation-source COG20_FUNCTION \
+                                          -o PKOR-enriched-functions.txt
+#The output for this command will be a full table with genes present and statistical values
+
+#The second bacterial isolate we will use for pangenomic analysis is Arthrobacter Ramosus
+#To begin you will create an internal genomes storage. This will tell anvi'o where to pull the data from
+anvi-gen-genomes-storage -i A.ramosusIG.txt \
+                         -o ARAMOSUS-GENOMES.db
+
+#now you will run the pangenomic analysis using the project name (ARAMOSUS_PAN)
+#the flag -g denotes the name of the genome storage
+#the flag -n denotes the name of the project
+anvi-pan-genome -g ARAMOSUS-GENOMES.db -n ARAMOSUS_PAN
+
+
+#this will import an additional data table that was created to categorize each isolate (2 total) by their specific treatment mowed (M) or moved fertilized (MF)
+anvi-import-misc-data ARAMOSUS-additional-data.txt \
+                 -p ARAMOSUS_PAN-PAN.db \
+                 --target-data-table layers
+
+#now that you have imported all of your data, you will display your pangenome
+anvi-display-pan -g ARAMOSUS-GENOMES.db \
+                 -p ARAMOSUS_PAN-PAN.db
+
+#This is the fun part! You will compute functional enrichment of your pangenome against a data source of your choosing
+#For this workflow we will be using the COG20_FUNCTION source which directly looks for COGS (clusters of orthologous genes) related to metabolism and nutrient uptake
+anvi-compute-functional-enrichment-in-pan -p ARAMOSUS_PAN-PAN.db \
+                                          -g ARAMOSUS-GENOMES.db \
+                                          --category treatment \
+                                          --annotation-source COG20_FUNCTION \
+                                          -o ARAMOSUS-enriched-functions.txt
+#The output for this command will be a full table with genes present and statistical values
+
+#You have now completed the pangenomic analysis for Pseudomonas koreensis and Arthrobacter Ramosus!
+#A comparative analysis can now be completed to further analyze the isolates and the similar genes they share. This is important because you can
+  determine if the different treatments (disturbance) had any affect on the genes present in the soil isolates and answer the question of how
+  disturbance impacts the presence or absence of nutrient uptake
