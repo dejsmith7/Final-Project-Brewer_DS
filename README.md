@@ -20,7 +20,7 @@ Based on this growth rate, I predicted that the functional genes present across 
 
 
 ## The set of isolates corresponding with P. koreensis are: WRC_271 (mowed treatment) and WRC_315 (mowed fertilized treatment)
-Pseudomonas koreensis has a very slow growth rate which can be seen below:
+Pseudomonas koreensis has a gradual growth rate which can be seen below:
 
 
 <img width="305" alt="PKOR" src="https://user-images.githubusercontent.com/112521409/206234779-bd62b0d5-4ce9-40e3-8e4c-cf2354a8cf33.png">
