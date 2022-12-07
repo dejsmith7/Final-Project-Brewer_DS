@@ -16,7 +16,7 @@ Arthrobacter ramosus has a very slow growth rate which can be seen below:
 <img width="305" alt="ARAMOSUS" src="https://user-images.githubusercontent.com/112521409/206233696-55c652d5-2655-4a57-82a1-0024b2516b3c.png">
 (Image credit: Aied Garcia)
 
-Based on this growth rate, I predicted that the functional genes present across the two treatments would be fairly low.
+Based on this growth rate, I predicted that the number of orthologous functional genes present across the two treatments would be fairly low.
 
 
 ## The set of isolates corresponding with P. koreensis are: WRC_271 (mowed treatment) and WRC_315 (mowed fertilized treatment)
@@ -26,7 +26,7 @@ Pseudomonas koreensis has a gradual growth rate which can be seen below:
 <img width="305" alt="PKOR" src="https://user-images.githubusercontent.com/112521409/206234779-bd62b0d5-4ce9-40e3-8e4c-cf2354a8cf33.png">
 (Image credit: Aied Garcia)
 
-Based on this growth rate, I predicted that there would be a large amount of functional genes present across the two treatments.
+Based on this growth rate, I predicted that there would be a large number of orthologous functional genes present across the two treatments.
 
 # Predictions are great... but what actually happened?
 After runninng a pangenomic analysis on both isolate groups the following was the result:
