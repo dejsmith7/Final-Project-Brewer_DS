@@ -1,0 +1,60 @@
+[23 May 22 13:21:15] Sample name set ...................................: WRC_271
+[23 May 22 13:21:15] Description .......................................: None
+[23 May 22 13:21:15] Profile DB path ...................................: /Users/smithdej16/WRC_271_profiled/PROFILE.db
+[23 May 22 13:21:15] Contigs DB path ...................................: contigs_271.db
+[23 May 22 13:21:15] Contigs DB hash ...................................: hash26e3fb96
+[23 May 22 13:21:15] Command line ......................................: /Users/smithdej16/anaconda3/envs/anvio-7.1/bin/anvi-profile -i WRC_271.bam -c contigs_271.db -M 1000 -T 4 --cluster-contigs -o WRC_271_profiled/
+[23 May 22 13:21:15] Minimum percent identity of reads to be profiled ..: None
+[23 May 22 13:21:15] Fetch filter engaged ..............................: None
+[23 May 22 13:21:15] Is merged profile? ................................: False
+[23 May 22 13:21:15] Is blank profile? .................................: False
+[23 May 22 13:21:15] Skip contigs shorter than .........................: 1,000
+[23 May 22 13:21:15] Skip contigs longer than ..........................: 9,223,372,036,854,775,807
+[23 May 22 13:21:15] Skip contigs covered less than ....................: 0
+[23 May 22 13:21:15] Perform hierarchical clustering of contigs? .......: True
+[23 May 22 13:21:15] Profile single-nucleotide variants (SNVs)? ........: True
+[23 May 22 13:21:15] Profile single-codon variants (SCVs/+SAAVs)? ......: False
+[23 May 22 13:21:15] Profile insertion/deletions (INDELs)? .............: True
+[23 May 22 13:21:15] Minimum coverage to calculate SNVs ................: 10
+[23 May 22 13:21:15] Report FULL variability data? .....................: False
+[23 May 22 13:21:15] 
+WARNING
+====================================================
+Your minimum contig length is set to 1,000 base pairs. So anvi'o will not take
+into consideration anything below that. If you need to kill this an restart your
+analysis with another minimum contig length value, feel free to press CTRL+C.
+
+
+[23 May 22 13:21:15] Input BAM .........................................: /Users/smithdej16/WRC_271.bam
+[23 May 22 13:21:15] Output directory path .............................: /Users/smithdej16/WRC_271_profiled
+[23 May 22 13:21:15] Number of reads in the BAM file ...................: 6,502,736
+[23 May 22 13:21:15] Number of sequences in the contigs DB .............: 180
+[23 May 22 13:21:15] Number of contigs to be conisdered (after -M) .....: 63
+[23 May 22 13:21:15] Number of splits ..................................: 277
+[23 May 22 13:21:15] Number of nucleotides .............................: 5,451,827
+[23 May 22 13:23:11] Num SNVs reported .................................: 1,545
+[23 May 22 13:23:11] Num INDELs reported ...............................: 344
+[23 May 22 13:23:11] 
+WARNING
+====================================================
+There were 33546 reads present in the BAM file that did not end up being used by
+anvi'o. That corresponds to about 0.52 percent of all reads in the bam file.
+This could be either because you supplied --contigs-of-interest, or because
+pysam encountered reads it could not deal with, e.g. they mapped but had no
+defined sequence, or they had a sequence but did not map. Regardless, anvi'o
+thought you should be aware of this.
+
+
+[23 May 22 13:23:11] Additional data added to the new profile DB .......: total_reads_mapped,
+                                                     num_SNVs_reported,
+                                                     num_INDELs_reported,
+                                                     total_reads_kept
+[23 May 22 13:23:12] New items order ...................................: "tnf:euclidean:ward" (type
+                                                     newick) has been added to
+                                                     the database...
+[23 May 22 13:23:12] New items order ...................................: "tnf-ab-cov:euclidean:ward"
+                                                     (type newick) has been
+                                                     added to the database...
+[23 May 22 13:23:12] * Happy 
+
+[23 May 22 13:23:12] Bye.
