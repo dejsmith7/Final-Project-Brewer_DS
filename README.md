@@ -36,6 +36,7 @@ The phylogram for A. ramosus shows a clear presence/absence comparison between t
 <img width="917" alt="ARAMOSUS-PAN" src="https://user-images.githubusercontent.com/112521409/206236551-101ffdc2-1daa-4d89-ab47-2a5554486f5d.png">
 
 COGs are defined as Clusters of Orthologous Genes
+
 These gene clusters can be present across various genomes and are categorized by their function.
 The COG20 pathway relates to a set of genes that function to drive processes related to nutrient uptake, metabolism and protein synthesis. As this project is related to affect of human acitivty on plant-microbe relationships and nutrient accessibility, this pathway was the most fitting to annotate against.
 
